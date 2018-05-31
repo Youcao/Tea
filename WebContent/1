@@ -1,0 +1,28 @@
+<li class='gl-item'>
+	<div class='Borders'>
+	 <div class='img'><a href='productServlet?method=detail&teaid=<%=p.getTeaid() %>'><img src='<%=p.getMainimag() %>' style='width:220px;height:220px'/></a></div>	 
+	 <div class='name'><a href='productServlet?method=detail&teaname=<%=p.getTeaname()%>'><%=p.getTeaname() %></a></div>
+     <div class='Price'>商城价：<b>¥<%=p.getShangchengjia() %></b><span>原价：<em>¥<%=p.getYuanjia() %></em></span></div>
+	 <div class='Review'>已有<a href='#'>2345</a>评论</div>
+	 <div class='p-operate'>
+	  <a href='Product_Detailed.jsp?teaId=<%=p.getTeaid()%>' class='p-o-btn Collect'><em></em>详情</a>
+	  <a href='shoppingCarServlet?method=add&teaid=<%=p.getTeaid()%>' class='p-o-btn shop_cart'><em></em>加入购物车</a>
+	 </div>
+	 </div>
+	</li>
+	
+	
+	<c:forEach  var="t"  items="${requestScope.allproduct }" varStatus="s">
+     <li class="gl-item">
+	<div class="Borders">
+	 <div class="img"><a href="productServlet?method=detail&teaid=${t.teaid }"><img src="${t.mainimag }" style="width:220px;height:220px"/></a></div>	 
+	 <div class="name"><a href="productServlet?method=detail&teaid=${t.teaid }">${t.teaname }</a></div>
+     <div class="Price">商城价：<b>¥${t.shangchengjia }</b><span>原价：<em>¥${t.yuanjia }</em></span></div>
+	 <div class="Review">已有<a href="#">2345</a>评论</div>
+	 <div class="p-operate">
+	  <a href="#" class="p-o-btn Collect"><em></em>收藏</a>
+	  <a href="shoppingCarServlet?method=add&teaid=${t.teaid }" class="p-o-btn shop_cart"><em></em>加入购物车</a>
+	 </div>
+	 </div>
+	</li>
+    </c:forEach>
